@@ -1,0 +1,51 @@
+{{- range $name, $app := .Values.applications }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $name }}
+spec:
+  project: {{ $app.project | default $app.namespace }}
+  source:
+    {{- if $app.gitUrl }}
+    repoURL: {{ $app.gitUrl }}
+    {{- else }}
+    repoURL: git@github.com:omer/k8s-{{ $app.project | default $app.namespace }}-configurations.git
+    {{- end }}
+
+    targetRevision: {{ $app.branch | default "master" }}
+    path: {{ $app.path  | default $name}}
+
+    helm:
+      valueFiles:
+      {{-  if .value_files }}
+      {{- range $key := .value_files }}
+      - {{ $key }}
+      {{- end }}
+
+      {{- else }}
+      - values-global.yaml
+      - values-{{ $.Values.global.environment }}.yaml
+      {{- end }}
+
+      {{- if or $.Values.globalParameters $app.parameters }}
+      parameters:
+      {{- range $key, $value := $.Values.globalParameters }}
+      - name: {{ $key }}
+        value: {{ $value | quote }}
+      {{- end }}
+      {{- range $key, $value := .parameters }}
+      - name: {{ $key }}
+        value: {{ $value | quote }}
+      {{- end }}
+      {{- end }}
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ $app.project | default $app.namespace }}
+
+  {{-  if .ignoreDifferences }}
+  ignoreDifferences:
+{{ toYaml .ignoreDifferences | indent 2  }}
+  {{- end }}
+---
+{{- end }}

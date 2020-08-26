@@ -1,0 +1,31 @@
+{{- range .Values.projects }}
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .name }}
+spec:
+  description: {{ .description }}
+
+  sourceRepos:
+    {{- range .sourceRepos }}
+    - {{ . -}}
+    {{ end }}
+
+  destinations:
+  {{- range .destination_namespaces }}
+  - namespace: {{ . }}
+    server: https://kubernetes.default.svc
+  {{- end }}
+
+  roles:
+  {{- if .oidcGroups }}
+    - name: project_team_role
+      description: "basic permission for okta group"
+      policies:
+      - "p, proj:{{ .name }}:project_team_role, applications, *, {{ .name }}/*, allow"
+      groups:
+{{ toYaml .oidcGroups| indent 6 }}
+  {{-  end }}
+
+---
+{{- end }}
