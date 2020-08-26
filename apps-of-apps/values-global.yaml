@@ -1,3 +1,7 @@
+projects:
+  demo:
+    description: demo
+
 applications:
   hello-world:
     namespace: demo
