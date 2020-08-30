@@ -2,11 +2,14 @@ projects:
   demo:
     description: demo
     sourceRepos:
-      - https://github.com/K8sExample/k8s-demo-configurations.git
+      - url: https://github.com/K8sExample/k8s-demo-configurations.git
   argocd:
     description: argocd
     sourceRepos:
-      - git@github.com:K8sExample/cluster-infra.git
+      - url: git@github.com:K8sExample/cluster-infra.git
+        sshPrivateKeySecret:
+           name: git-ssh
+           key: sshPrivateKey
 
 applications:
   hello-world:
