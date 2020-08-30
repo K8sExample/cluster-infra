@@ -33,5 +33,9 @@ spec:
 {{ toYaml $proj.oidcGroups| indent 6 }}
   {{-  end }}
 
+{{- if $proj.clusterResourceWhitelist }}
+  clusterResourceWhitelist:
+{{- toYaml $proj.clusterResourceWhitelist | indent  4 }}
+
 ---
 {{- end }}

@@ -10,6 +10,9 @@ projects:
         sshPrivateKeySecret:
            name: git-ssh
            key: sshPrivateKey
+    clusterResourceWhitelist:
+      - group: '*'
+        kind: Namespace
 
 applications:
   hello-world:

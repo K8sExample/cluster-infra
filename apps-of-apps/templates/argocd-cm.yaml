@@ -9,11 +9,6 @@ metadata:
       app.kubernetes.io/name: argocd-cm
       app.kubernetes.io/part-of: argocd
 data:
-  accounts.omer: apiKey, login
-  accounts.readonly: apiKey, login
-  users.anonymous.enabled: "true"
-  admin.enabled: "false"
-
   repositories: |
        - type: helm
          url: https://argoproj.github.io/argo-helm
@@ -32,9 +27,3 @@ data:
 {{- end }}
 
 {{- end }}
-
-  repository.credentials: |
-    - url: git@github.com:k8sexample/
-      sshPrivateKeySecret:
-        name: git-ssh
-        key: sshPrivateKey
