@@ -1,0 +1,13 @@
+---
+# Source: argocd/templates/project.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argocd
+spec:
+  sourceRepos:
+    - git@github.com:K8sExample/cluster-infra.git
+
+  destinations:
+  - namespace: argocd
+    server: https://kubernetes.default.svc

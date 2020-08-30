@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps-of-apps
+
+spec:
+  project: {{ .Release.Namespace }}
+  source:
+    repoURL: git@github.com:K8sExample/cluster-infra.git
+    targetRevision: HEAD
+    path: apps-of-apps
+
+    helm:
+      valueFiles:
+      - values-global.yaml
+      - values-{{ .Values.environment }}.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Release.Namespace }}

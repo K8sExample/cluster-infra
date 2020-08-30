@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  accounts.omer: apiKey, login
+  accounts.readonly: apiKey, login
+  users.anonymous.enabled: "true"
+  #admin.enabled: "false"
+
+  repositories: |
+       - url: git@github.com:k8sexample/cluster-infra.git
+         sshPrivateKeySecret:
+            name: git-ssh
+            key: sshPrivateKey
