@@ -5,3 +5,13 @@ projects:
 applications:
   hello-world:
     namespace: demo
+    gitUrl: https://github.com/K8sExample/k8s-demo-configurations.git
+  argocd:
+    namespace: argocd
+    gitUrl: git@github.com:omer/k8s-cluster-infra.git
+  namespaces:
+    namespace: argocd
+    gitUrl: git@github.com:omer/k8s-cluster-infra.git
+  apps-of-apps:
+    namespace: argocd
+    gitUrl: git@github.com:omer/k8s-cluster-infra.git

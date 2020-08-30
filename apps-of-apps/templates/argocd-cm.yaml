@@ -41,5 +41,5 @@ data:
   repository.credentials: |
     - url: git@github.com:k8sexample/
       sshPrivateKeySecret:
-        name: my-secret
+        name: git-ssh
         key: sshPrivateKey
