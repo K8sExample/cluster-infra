@@ -22,7 +22,7 @@ data:
 {{- range $name, $proj :=  .Values.projects }}
 
 {{- if $proj.sourceRepos }}
-{{ toYaml $proj.sourceRepos | indent 8 }}
+{{ toYaml $proj.sourceRepos | indent 7 }}
 
 {{- else }}
        - url: git@github.com:k8sexample/k8s-{{ $name }}-configurations.git

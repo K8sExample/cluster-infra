@@ -9,7 +9,7 @@ spec:
   sourceRepos:
     {{- if $proj.sourceRepos }}
     {{- range $proj.sourceRepos }}
-    - {{ . -}}
+    - {{ .url -}}
     {{ end }}
     {{- else }}
     - git@github.com:k8sexample/k8s-{{ $name }}-configurations.git
