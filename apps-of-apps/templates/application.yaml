@@ -9,7 +9,7 @@ spec:
     {{- if $app.gitUrl }}
     repoURL: {{ $app.gitUrl }}
     {{- else }}
-    repoURL: git@github.com:omer/k8s-{{ $app.project | default $app.namespace }}-configurations.git
+    repoURL: git@github.com:K8sExample/k8s-{{ $app.project | default $app.namespace }}-configurations.git
     {{- end }}
 
     targetRevision: {{ $app.branch | default "master" }}

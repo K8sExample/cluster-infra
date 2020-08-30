@@ -1,6 +1,12 @@
 projects:
   demo:
     description: demo
+    sourceRepos:
+      - https://github.com/K8sExample/k8s-demo-configurations.git
+  argocd:
+    description: argocd
+    sourceRepos:
+      - git@github.com:K8sExample/k8s-cluster-infra.git
 
 applications:
   hello-world:
@@ -8,10 +14,10 @@ applications:
     gitUrl: https://github.com/K8sExample/k8s-demo-configurations.git
   argocd:
     namespace: argocd
-    gitUrl: git@github.com:omer/k8s-cluster-infra.git
+    gitUrl: git@github.com:K8sExample/k8s-cluster-infra.git
   namespaces:
     namespace: argocd
-    gitUrl: git@github.com:omer/k8s-cluster-infra.git
+    gitUrl: git@github.com:K8sExample/k8s-cluster-infra.git
   apps-of-apps:
     namespace: argocd
-    gitUrl: git@github.com:omer/k8s-cluster-infra.git
+    gitUrl: git@github.com:K8sExample/k8s-cluster-infra.git
