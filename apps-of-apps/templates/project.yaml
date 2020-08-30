@@ -36,6 +36,6 @@ spec:
 {{- if $proj.clusterResourceWhitelist }}
   clusterResourceWhitelist:
 {{- toYaml $proj.clusterResourceWhitelist | indent  4 }}
-
+{{- end }}
 ---
 {{- end }}
