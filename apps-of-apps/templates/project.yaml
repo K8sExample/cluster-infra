@@ -10,7 +10,7 @@ spec:
     {{- if $proj.sourceRepos }}
     {{- range $proj.sourceRepos }}
     - {{ .url -}}
-    {{ end }}
+    {{- end }}
     {{- else }}
     - git@github.com:k8sexample/k8s-{{ $name }}-configurations.git
     {{ end }}
@@ -35,7 +35,7 @@ spec:
 
 {{- if $proj.clusterResourceWhitelist }}
   clusterResourceWhitelist:
-{{- toYaml $proj.clusterResourceWhitelist | indent  4 }}
+{{ toYaml $proj.clusterResourceWhitelist | indent  4 }}
 {{- end }}
 ---
 {{- end }}
