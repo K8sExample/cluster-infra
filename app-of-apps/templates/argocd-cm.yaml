@@ -20,10 +20,7 @@ data:
 {{ toYaml $proj.sourceRepos | indent 7 }}
 
 {{- else }}
-       - url: git@github.com:k8sexample/k8s-{{ $name }}-configurations.git
-         sshPrivateKeySecret:
-          name: git-ssh
-          key: sshPrivateKey
+       - url: https://github.com/K8sExample/k8s-{{ $name }}-configurations.git
 {{- end }}
 
 {{- end }}
