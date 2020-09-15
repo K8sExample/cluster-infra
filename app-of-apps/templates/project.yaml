@@ -12,7 +12,7 @@ spec:
     - {{ .url -}}
     {{- end }}
     {{- else }}
-    - git@github.com:k8sexample/k8s-{{ $name }}-configurations.git
+    - https://github.com/K8sExample/k8s-{{ $name }}-configurations.git
     {{ end }}
 
   destinations:

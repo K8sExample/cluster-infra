@@ -1,8 +1,6 @@
 projects:
   demo:
     description: demo
-    sourceRepos:
-      - url: https://github.com/K8sExample/k8s-demo-configurations.git
   argocd:
     description: argocd
     sourceRepos:
