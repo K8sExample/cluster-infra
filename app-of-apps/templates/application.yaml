@@ -27,13 +27,13 @@ spec:
       - values-{{ $.Values.global.environment }}.yaml
       {{- end }}
 
-      {{- if or $.Values.globalParameters $app.parameters }}
+      {{- if or $.Values.parameters $app.parameters }}
       parameters:
-      {{- range $key, $value := $.Values.globalParameters }}
+      {{- range $key, $value := $.Values.parameters }}
       - name: {{ $key }}
-        value: {{ $value | quote }}
+        value: {{ $value }}
       {{- end }}
-      {{- range $key, $value := .parameters }}
+      {{- range $key, $value := $app.parameters }}
       - name: {{ $key }}
         value: {{ $value | quote }}
       {{- end }}

@@ -20,10 +20,13 @@ applications:
     gitUrl: https://github.com/K8sExample/k8s-demo-configurations.git
   argocd:
     namespace: argocd
-    gitUrl: git@github.com:K8sExample/cluster-infra.git
+    gitUrl: https://github.com/K8sExample/cluster-infra.git
   namespaces:
     namespace: argocd
-    gitUrl: git@github.com:K8sExample/cluster-infra.git
-  apps-of-apps:
+    gitUrl: https://github.com/K8sExample/cluster-infra.git
+  app-of-apps:
     namespace: argocd
-    gitUrl: git@github.com:K8sExample/cluster-infra.git
+    gitUrl: https://github.com/K8sExample/cluster-infra.git
+
+parameters:
+  global.clusterName: "production"

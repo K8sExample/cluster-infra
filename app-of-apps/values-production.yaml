@@ -1,0 +1,6 @@
+global:
+  environment: production
+
+parameters:
+  environment: production
+  
