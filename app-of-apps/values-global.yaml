@@ -6,10 +6,7 @@ projects:
   argocd:
     description: argocd
     sourceRepos:
-      - url: git@github.com:K8sExample/cluster-infra.git
-        sshPrivateKeySecret:
-           name: git-ssh
-           key: sshPrivateKey
+      - url: https://github.com/K8sExample/cluster-infra.git
     clusterResourceWhitelist:
       - group: '*'
         kind: Namespace
@@ -17,7 +14,6 @@ projects:
 applications:
   hello-world:
     namespace: demo
-    gitUrl: https://github.com/K8sExample/k8s-demo-configurations.git
   argocd:
     namespace: argocd
     gitUrl: https://github.com/K8sExample/cluster-infra.git
