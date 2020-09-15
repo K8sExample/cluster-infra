@@ -8,7 +8,7 @@ spec:
 
   project: {{ .Release.Namespace }}
   source:
-    repoURL: git@github.com:K8sExample/cluster-infra.git
+    repoURL: https://github.com/K8sExample/cluster-infra.git
     targetRevision: HEAD
     path: app-of-apps
 

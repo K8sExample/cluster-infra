@@ -64,10 +64,7 @@ server:
     url: https://argocd.test.com
     # Argo CD instance label key
     repositories: |
-       - url: git@github.com:k8sexample/cluster-infra.git
-         sshPrivateKeySecret:
-           name: git-ssh
-           key: sshPrivateKey
+       - url: https://github.com/K8sExample/cluster-infra.git
        - type: helm
          url: https://argoproj.github.io/argo-helm
          name: argo

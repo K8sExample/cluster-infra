@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Namespace }}
 spec:
   sourceRepos:
-    - git@github.com:K8sExample/cluster-infra.git
+    - https://github.com/K8sExample/cluster-infra.git
 
   destinations:
   - namespace: {{ .Release.Namespace }}
